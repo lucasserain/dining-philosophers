@@ -28,5 +28,29 @@ A cada iteração do for, é startado uma thread para cada filosofo.
 Todo filosofo inicia pensando e cada vez que o garfo esquerdo estiver disponivel e o direito também, então o mesmo come.
 
 
+# Exercício 2 
+| tpensando/ tcomendo 	| 10% 	| 20% 	| 30% 	| 40% 	| 50% 	| 60% 	| 70% 	| 80% 	| 90% 	| 100% 	|
+|:-------------------:	|:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|:----:	|
+| Ciclos até deadlock 	|  53 	| 368 	| 465 	| 517 	|  9  	|  10 	| 438 	| 350 	| 293 	|   4  	|
+
+## 10% (0.1ms pensando/1ms comendo)
+``` java 
+	private void agir(String acao,Integer status) throws InterruptedException {
+		System.out.println(Thread.currentThread().getName() + " " + acao);
+		if(status == 1){
+			Thread.sleep((long) 0.1);
+		}else if(status == 4){
+			Thread.sleep((long) 0.9);
+		}
+	}
+```
+## Outros tempos
+Pra não repetir código, só alterei o sleep de cada status, status=1 para pensando e status=3 para comendo.
+
+# Exercicio 3
+Quanto mais tempo os filosofos passam comendo, maior a chance de deadlock.
+
+
+
 ### Link github
 https://github.com/lucasserain/dining-philosophers

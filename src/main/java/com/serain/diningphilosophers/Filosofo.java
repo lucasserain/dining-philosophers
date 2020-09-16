@@ -15,6 +15,8 @@ public class Filosofo implements Runnable {
 		System.out.println(Thread.currentThread().getName() + " " + acao);
 		if(status == 1){
 			Thread.sleep((long) 1);
+		}else if(status == 4){
+			Thread.sleep((long) 0.1);
 		}
 	}
 	
